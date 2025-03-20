@@ -6,7 +6,6 @@ import SwiftUI
  */
 @available(iOS 13, tvOS 13, *)
 public struct JMPermission: Equatable {
-    
     /**
      Initializes a new instance of `JMPermission` that encapsulates properties of a single permission
      
@@ -16,13 +15,13 @@ public struct JMPermission: Equatable {
      - description: Defines the description text of the permission component
      - authorized: Tracks the authorization status of ther permission
      */
-    public init(imageIcon: AnyView, title: String, description: String) {
+    public init(imageIcon: AnyView, title: LocalizedStringKey, description: LocalizedStringKey) {
         self.imageIcon = imageIcon
         self.title = title
         self.description = description
     }
     
-    @usableFromInline internal init(imageIcon: AnyView, title: String, description: String, authorized: Bool) {
+    @usableFromInline internal init(imageIcon: AnyView, title: LocalizedStringKey, description: LocalizedStringKey, authorized: Bool) {
         self.imageIcon = imageIcon
         self.title = title
         self.description = description
@@ -48,12 +47,16 @@ public struct JMPermission: Equatable {
         }
     }
     
-    ///The image icon displayed
+    /// The image icon displayed
     public var imageIcon: AnyView
-    ///The permission name displayed
-    public var title: String
-    ///The permission description displayed
-    public var description: String
+    
+    /// The permission name displayed
+    public var title: LocalizedStringKey
+    
+    /// The permission description displayed
+    public var description: LocalizedStringKey
+    
     @usableFromInline internal var authorized = false
+    
     internal var interacted = false
 }
