@@ -1,11 +1,3 @@
-//
-//  HKAccess.swift
-//  
-//
-//  Created by Jevon Mao on 3/17/21.
-//
-
-import Foundation
 #if !os(tvOS) && PERMISSIONSWIFTUI_HEALTH
 import HealthKit
 /**
@@ -23,10 +15,10 @@ public struct HKAccess: Hashable {
      Initializes a new `HKAccess` with separate read and write permissions
      
      - parameters:
-        - read: The HealthKit sample types for read permission
-        - write: The HealthKit sample types for write permission
+     - read: The HealthKit sample types for read permission
+     - write: The HealthKit sample types for write permission
      */
-    public init(read: Set<HKSampleType>, write: Set<HKSampleType>){
+    public init(read: Set<HKSampleType>, write: Set<HKSampleType>) {
         self.readPermissions = read
         self.writePermissions = write
     }
@@ -34,20 +26,20 @@ public struct HKAccess: Hashable {
      Initializes a new `HKAccess` with read permissions
      
      - parameters:
-        - read: The HealthKit sample types for read permission
-        - write: The HealthKit sample types for write permission
+     - read: The HealthKit sample types for read permission
+     - write: The HealthKit sample types for write permission
      */
-    public init(read: Set<HKSampleType>){
+    public init(read: Set<HKSampleType>) {
         self.readPermissions = read
     }
     /**
      Initializes a new `HKAccess` with write permissions
      
      - parameters:
-        - read: The HealthKit sample types for read permission
-        - write: The HealthKit sample types for write permission
+     - read: The HealthKit sample types for read permission
+     - write: The HealthKit sample types for write permission
      */
-    public init(write: Set<HKSampleType>){
+    public init(write: Set<HKSampleType>) {
         self.writePermissions = write
     }
     /**
@@ -55,18 +47,17 @@ public struct HKAccess: Hashable {
      
      - warning: This initializer should never be used in production. It will definitely crash the application when health permission is requested.
      */
-    public init(){}
+    public init() {}
 }
 
 extension HKAccess {
-
     /**
      Initializes a new `HKAccess` with same read and write permissions
      
      - parameters:
-        - readAndWrite: sample types for read permission
+     - readAndWrite: sample types for read permission
      */
-    public init(readAndWrite sharedPermissions: Set<HKSampleType>){
+    public init(readAndWrite sharedPermissions: Set<HKSampleType>) {
         self.init(read: sharedPermissions, write: sharedPermissions)
     }
 }

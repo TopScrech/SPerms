@@ -1,11 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Jevon Mao on 3/18/21.
-//
-
-import Foundation
 import SwiftUI
 
 /**
@@ -13,25 +5,28 @@ import SwiftUI
  
  - Warning: These properties are deprecated, access the sub-properties through `PermissionStore` 's `configStore` property instead
  */
-@available(iOS, introduced: 13.0, obsoleted: 15.0, deprecated, message: "Access the properties through PermissionStore's configStore property instead. Learn more: https://github.com/jevonmao/PermissionsSwiftUI/wiki/Migrating-to-v1.4.0")
-@available(tvOS, introduced: 13.0, obsoleted: 15.0, deprecated, message: "Access the properties through PermissionStore's configStore property instead. Learn more: https://github.com/jevonmao/PermissionsSwiftUI/wiki/Migrating-to-v1.4.0")
+@available(iOS, introduced: 13, obsoleted: 15, deprecated, message: "Access the properties through PermissionStore's configStore property instead. Learn more: https://github.com/jevonmao/PermissionsSwiftUI/wiki/Migrating-to-v1.4.0")
+@available(tvOS, introduced: 13, obsoleted: 15, deprecated, message: "Access the properties through PermissionStore's configStore property instead. Learn more: https://github.com/jevonmao/PermissionsSwiftUI/wiki/Migrating-to-v1.4.0")
 public extension PermissionStore {
     
-    //MARK: Configuring View Texts
+    // MARK: Configuring View Texts
     ///The text for text label components, including header and descriptions
     var mainTexts: MainTexts {
-        get {configStore.mainTexts}
-        set {configStore.mainTexts = newValue}
+        get {
+            configStore.mainTexts
+        } set {
+            configStore.mainTexts = newValue
+        }
     }
     
-    //MARK: Customizing Colors
+    // MARK: Customizing Colors
     ///The color configuration for permission allow buttons
     var allButtonColors: AllButtonColors {
         get {configStore.allButtonColors}
         set {configStore.allButtonColors = newValue}
     }
     
-    //MARK: Change Auto Dismiss Behaviors
+    // MARK: Change Auto Dismiss Behaviors
     ///Whether to auto dismiss the modal after last permission is allowed
     var autoDismissModal: Bool {
         get {configStore.autoDismiss}
@@ -40,15 +35,21 @@ public extension PermissionStore {
     
     ///Whether to auto dismiss the alert after last permission is allowed
     var autoDismissAlert: Bool {
-        get {configStore.autoDismiss}
-        set {configStore.autoDismiss = newValue}
+        get {
+            configStore.autoDismiss
+        } set {
+            configStore.autoDismiss = newValue
+        }
     }
     
-    //MARK: Configure Auto Authorization Checking
+    // MARK: Configure Auto Authorization Checking
     ///Whether to auto check for authorization status before showing, and show the view only if permission is in `notDetermined`
     var autoCheckModalAuth: Bool {
-        get {configStore.autoCheckAuth}
-        set {configStore.autoCheckAuth = newValue}
+        get {
+            configStore.autoCheckAuth
+        } set {
+            configStore.autoCheckAuth = newValue
+        }
     }
 
     ///Whether to auto check for authorization status before showing, and show the view only if permission is in `notDetermined`
@@ -57,7 +58,7 @@ public extension PermissionStore {
         set {configStore.autoCheckAuth = newValue}
     }
     
-    //MARK: Prevent Dismissal Before All Permissions Interacted
+    // MARK: Prevent Dismissal Before All Permissions Interacted
     ///Whether to prevent dismissal of modal view before all permissions have been interacted (explict deny or allow)
     var restrictModalDismissal: Bool {
         get {configStore.restrictDismissal}
@@ -69,11 +70,14 @@ public extension PermissionStore {
         set {configStore.restrictDismissal = newValue}
     }
     
-    //MARK: `onAppear` and `onDisappear` Executions
+    // MARK: `onAppear` and `onDisappear` Executions
     ///Override point for executing action when PermissionsSwiftUI view appears
     var onAppear: (()->Void)? {
-        get {configStore.onAppear}
-        set {configStore.onAppear = newValue}
+        get {
+            configStore.onAppear
+        } set {
+            configStore.onAppear = newValue
+        }
     }
     ///Override point for executing action when PermissionsSwiftUI view disappears
     var onDisappear: (()->Void)? {
@@ -82,15 +86,15 @@ public extension PermissionStore {
     }
 }
 
-@available(iOS, introduced: 13.0, obsoleted: 15.0, deprecated, message: "These will no longer work. Access through permissionComponentsStore property instead. Learn more: https://github.com/jevonmao/PermissionsSwiftUI/wiki/Migrating-to-v1.4.0")
-@available(tvOS, introduced: 13.0, obsoleted: 15.0, deprecated, message: "These will no longer work. Access through permissionComponentsStore property instead. Learn more: https://github.com/jevonmao/PermissionsSwiftUI/wiki/Migrating-to-v1.4.0")
+@available(iOS, introduced: 13, obsoleted: 15, deprecated, message: "These will no longer work. Access through permissionComponentsStore property instead. Learn more: https://github.com/jevonmao/PermissionsSwiftUI/wiki/Migrating-to-v1.4.0")
+@available(tvOS, introduced: 13, obsoleted: 15, deprecated, message: "These will no longer work. Access through permissionComponentsStore property instead. Learn more: https://github.com/jevonmao/PermissionsSwiftUI/wiki/Migrating-to-v1.4.0")
 /**
  Additional permission component properties for backward compatibility
  
  - Warning: These properties are deprecated, access the sub-properties through `PermissionStore` 's `permissionComponentsStore` property instead
  */
 extension PermissionStore {
-    //MARK: Permission Components
+    // MARK: Permission Components
     ///The displayed text and image icon for the camera permission
     public var cameraPermission: JMPermission {
         get {permissionComponentsStore.cameraPermission}

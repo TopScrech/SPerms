@@ -71,4 +71,3 @@ $ git push origin --tags
 pod trunk push --allow-warnings
 ```
 The documentation will be automatically generated (Jazzy) and deployed to Github pages by a Github Action that triggers on each new release.
- 

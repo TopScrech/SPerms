@@ -1,11 +1,3 @@
-//
-//  UITests.swift
-//  
-//
-//  Created by Jevon Mao on 6/15/21.
-//
-
-import Foundation
 import XCTest
 
 final class UITests: XCTestCase {

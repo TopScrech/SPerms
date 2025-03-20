@@ -4,16 +4,16 @@
   <br>
 </span>
 
-# PermissionsSwiftUI: A SwiftUI package to handle permissions
+# SPerms: A SwiftUI package to handle permissions
 <img src="https://img.shields.io/github/workflow/status/jevonmao/PermissionsSwiftUI/Swift?label=CI%20Build"> <img src="https://img.shields.io/github/contributors/jevonmao/PermissionsSwiftUI"> <img src="https://img.shields.io/badge/License-MIT-blue.svg"> <img src="https://img.shields.io/github/issues/jevonmao/PermissionsSwiftUI?color=orange"> <img src="https://img.shields.io/github/commit-activity/w/jevonmao/PermissionsSwiftUI?color=yellowgreen&logoColor=yellowgreen"> <img src="https://camo.githubusercontent.com/86f8561418bbd6240d5c39dbf80b83a3dc1e85e69fe58da808f0168194dcc0d3/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5377696674504d2d436f6d70617469626c652d627269676874677265656e2e737667"> <img src="https://img.shields.io/github/v/release/jevonmao/PermissionsSwiftUI?include_prereleases&style=plastic">
 
-`PermissionsSwiftUI` displays and handles permissions in SwiftUI. It is largely inspired by [SPPermissions](https://github.com/varabeis/SPPermissions).
+`SPerms` displays and handles permissions in SwiftUI. It is largely inspired by [PermissionsKit](https://github.com/sparrowcode/PermissionsKit).
 The UI is highly customizable and resembles an **Apple style**. If you like the project, please `star ★`. <br />
 <br />
 <p align="center">
     <img src="https://github.com/jevonmao/PermissionsSwiftUI/blob/main/Resources/Main-screenshot.png?raw=true" style="display: block; margin: auto;"/>
 </p>
-<p align="center"> PermissionsSwiftUI looks equally gorgeous on both ☀️light and 🌑 dark mode. </p>
+<p align="center"> SPerms looks equally gorgeous on both ☀️light and 🌑 dark mode. </p>
 
 ## 🧭 Navigation
 -  [Installation](#-installation)
@@ -47,42 +47,30 @@ The UI is highly customizable and resembles an **Apple style**. If you like the 
 
 ## 🖥️ Installation
 ### Requirements
-* iOS 11 (SwiftUI require iOS 13.0) or iPadOS 13
+* iOS 11 (SwiftUI require iOS 13) or iPadOS 13
 * Xcode 12 and Swift 5.3
 * tvOS support coming soon
-* No MacOS, and WatchOS support for now
+* No MacOS & WatchOS support for now
 
 ### Install
 #### Swift Package Manager (Recommended)
 You can install PermissionsSwiftUI into your Xcode project via SPM. 
-To learn more about SPM, click [here](https://swift.org/package-manager/)
+To learn more about SPM, click [here](https://swift.org/package-manager)
 1. In Xcode 12, open your project and navigate to **File** → **Swift Packages** → **Add Package Dependency...**
 
 For Xcode 13, navigate to **Files** → **Add Package**
 
-2. Paste the repository URL (`https://github.com/jevonmao/PermissionsSwiftUI`) and click **Next**.
+2. Paste the repository URL (`https://github.com/jevonmao/SPerms`) and click **Next**.
 3. For **Version**, verify it's **Up to next major**.
 4. Click **Next** and ONLY SELECT PERMISSIONS NEEDED else Apple will reject your app 
 
-(You don't need to add CorePermissionsSwiftUI or PermissionsSwiftUI)
+(You don't need to add CorePermissionsSwiftUI or SPerms)
 
 <img width="716" alt="image" src="https://user-images.githubusercontent.com/64660730/121824314-313dea00-cc60-11eb-8553-40012b27f88e.png">
 
 5. Click **Finish**
 6. You are all set, thank you for using PermissionsSwiftUI!
 
-
-#### Cocoapods (Deprecated)
-You can also install PermissionsSwiftUI with Cocoapods. Add `pod 'PermissionsSwiftUI'` in your podfile:
-```Ruby
-platform :ios, '14.0'
-
-target 'test abstract' do
-  use_frameworks!
-  pod 'PermissionsSwiftUI'
-
-end
-```
 ## 🚀 Quickstart
 > Before you start, please `star ★` this repository. Your star is my biggest motivation to pull all-nighters and maintain this open-source project.
 
@@ -149,7 +137,7 @@ setPermissionComponent(for: .tracking, description: "Tracking description")
 * The parameters you don't provide will show the default text
 * Add the `setPermissionComponent` modifier on your root level view, after `JMPermissions` modifier
 
-The `image` parameter accepts **AnyView**, so feel free to use [SF Symbols](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/overview/) or your custom asset:
+The `image` parameter accepts **AnyView**, so feel free to use [SF Symbols](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/overview) or your custom asset:
 ```Swift
 .setPermissionComponent(for: .camera, 
                         image: AnyView(Image("Your-cool-image"))
@@ -186,10 +174,12 @@ You can perform some action when PermissionsSwiftUI view appears or disappears b
 The `onAppear` and `onDisappear` **closure parameters will be executed** everytime PermissionsSwiftUI view **appears and disappears.** <br />
 The same view modifier closure for state changes are available for the `JMAlert` modifier:
 ```Swift
-.JMAlert(showModal: $showModal,
-                     for: [.locationAlways, .photo],
-                     onAppear: {print("Appeared")},
-                     onDisappear: {print("Disappeared")})
+.JMAlert(showModal: $showModal, for: [.locationAlways, .photo]) {
+        print("Appeared")
+    } onDisappear: {
+        print("Disappeared")
+    }
+)
 ```
 ### Auto Check Authorization
 PermissionsSwiftUI by default will automatically check for authorization status. It will only show permissions that are currently `notDetermined` status. (the iOS system prevents developers from asking for denied permissions. Allowed permissions will also be ignored by PermissionsSwiftUI). If all permissions are allowed or denied, PermissionsSwiftUI will not show the modal or alert at all.
@@ -351,7 +341,6 @@ Contributions are welcome here for coders and non-coders alike. No matter what y
 ## Additional Information
 
 ### Acknowledgement
-SPPermissions is in large a SwiftUI remake of the famous Swift library **[SPPermissions](https://github.com/varabeis/SPPermissions)** by @verabeis. SPPermissions was initially created in 2017, and today on GitHub has over 4000 stars. PermissionsSwiftUI aims to deliver a just as beautiful and powerful library in SwiftUI. If you `star ★` my project PermissionsSwiftUI, be sure to check out the original project SPPermissions where I borrowed the UI Design, some parts of README.md page, and important source code references along the way.
+SPerms is in large a SwiftUI remake of the famous Swift library **[PermissionsKit](https://github.com/sparrowcode/PermissionsKit)** by @sparrowcode. SPPermissions was initially created in 2017, and today on GitHub has over 5000 stars. PermissionsSwiftUI aims to deliver a just as beautiful and powerful library in SwiftUI. If you `star ★` my project PermissionsSwiftUI, be sure to check out the original project PermissionsKit where I borrowed the UI Design, some parts of README.md page, and important source code references along the way.
 ### License
 PermissionsSwiftUI is created by Jingwen (Jevon) Mao and licensed under the [MIT License](https://jingwen-mao.mit-license.org)
-

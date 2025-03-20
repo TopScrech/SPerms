@@ -1,44 +1,38 @@
-//
-//  JMLocationInUsePermissionManager.swift
-//  
-//
-//  Created by Jevon Mao on 2/18/21.
-//
-
-
-import Foundation
 import MapKit
 import CorePermissionsSwiftUI
 
-@available(iOS 13.0, tvOS 13.0, *)
+@available(iOS 13, tvOS 13, *)
 public extension PermissionManager {
     ///The `location` permission allows the device's positoin to be tracked
     static let location = JMLocationPermissionManager()
 }
 
-@available(iOS 13.0, tvOS 13.0, *)
+@available(iOS 13, tvOS 13, *)
 public final class JMLocationPermissionManager: PermissionManager, CLLocationManagerDelegate {
     typealias authorizationStatus = CLAuthorizationStatus
     typealias permissionManagerInstance = JMLocationPermissionManager
     
-
+    
     public override var permissionType: PermissionType {
         .location
     }
     
     public override var authorizationStatus: AuthorizationStatus {
-        switch CLLocationManager.authorizationStatus(){
+        switch CLLocationManager.authorizationStatus() {
         case .authorizedAlways:
-            return .authorized
+            .authorized
+            
         case .authorizedWhenInUse:
-            return .authorized
+            .authorized
+            
         case .notDetermined:
-            return .notDetermined
+            .notDetermined
+            
         default:
-            return .denied
+            .denied
         }
     }
-
+    
     var completionHandler: ((Bool, Error?) -> Void)?
     var locationManager = CLLocationManager()
     
@@ -69,7 +63,7 @@ public final class JMLocationPermissionManager: PermissionManager, CLLocationMan
             completion(status == .authorizedWhenInUse || status == .authorizedAlways ? true : false, nil)
         }
     }
-
+    
     deinit {
         locationManager.delegate = nil
     }

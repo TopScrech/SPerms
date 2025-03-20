@@ -34,12 +34,12 @@ In addition, provide an extension to `PermissionManager` to define a short name 
 Use the following example as template:
 
 ```swift
-@available(iOS 13.0, tvOS 13.0, *)
+@available(iOS 13, tvOS 13, *)
 public extension PermissionManager {
     static let siri = JMSiriPermissionManager()
 }
 
-@available(iOS 13.0, tvOS 13.0, *)
+@available(iOS 13, tvOS 13, *)
 public final JMSiriPermissionManager: PermissionManager {
     
     
@@ -49,12 +49,9 @@ public final JMSiriPermissionManager: PermissionManager {
     
     public override var authorizationStatus: AuthorizationStatus {
         switch INPreferences.siriAuthorizationStatus() {
-        case .authorized:
-            return .authorized
-        case .notDetermined:
-            return .notDetermined
-        default:
-            return .denied
+        case .authorized: .authorized
+        case .notDetermined: .notDetermined
+        default: .denied
         }
     }
     

@@ -1,36 +1,32 @@
-//
-//  File.swift
-//  
-//
-//  Created by Jevon Mao on 3/18/21.
-//
-
 import SwiftUI
 
 // MARK: - Customize the button colors
 /**
  `AllButtonColors` encapsulates the color configuration for all states of the allow button
-    
+ 
  To customize button colors:
  1. Define a new instance of the `AllButtonColors` struct
  2. Add the `setAllowButtonColor(to colors:AllButtonColors)` modifier to your view
  3. Pass in the `AllButtonColors` struct previously into the proper parameter
  */
-@available(iOS 13.0, tvOS 13.0, *)
+@available(iOS 13, tvOS 13, *)
 public struct AllButtonColors: Equatable {
     var contentChanged: Bool {
-        let allButtonColors = AllButtonColors()
-        if self == allButtonColors {return false}
-        return true
+        if self == AllButtonColors() {
+            false
+        } else {
+            true
+        }
     }
-    //MARK: Creating New Button Configs
+    
+    // MARK: Creating New Button Configs
     /**
      - parameters:
-        - buttonIdle: The button color configuration for the default, idle state
-        - buttonAllowed: The button color configuration for the highlighted, allowed state
-        - buttonDenied: The button color configuration for the user explicitly denied state
+     - buttonIdle: The button color configuration for the default, idle state
+     - buttonAllowed: The button color configuration for the highlighted, allowed state
+     - buttonDenied: The button color configuration for the user explicitly denied state
      */
-    public init(buttonIdle: ButtonColor, buttonAllowed: ButtonColor, buttonDenied: ButtonColor){
+    public init(buttonIdle: ButtonColor, buttonAllowed: ButtonColor, buttonDenied: ButtonColor) {
         self.init()
         self.buttonIdle = buttonIdle
         self.buttonAllowed = buttonAllowed
@@ -38,25 +34,25 @@ public struct AllButtonColors: Equatable {
     }
     /**
      - parameters:
-        - buttonIdle: The button color configuration for the default, idle state
+     - buttonIdle: The button color configuration for the default, idle state
      */
-    public init(buttonIdle: ButtonColor){
+    public init(buttonIdle: ButtonColor) {
         self.init()
         self.buttonIdle = buttonIdle
     }
     /**
      - parameters:
-        - buttonAllowed: The button color configuration for the highlighted, allowed state
+     - buttonAllowed: The button color configuration for the highlighted, allowed state
      */
-    public init(buttonAllowed: ButtonColor){
+    public init(buttonAllowed: ButtonColor) {
         self.init()
         self.buttonAllowed = buttonAllowed
     }
     /**
      - parameters:
-        - buttonDenied: The button color configuration for the user explicitly denied state
+     - buttonDenied: The button color configuration for the user explicitly denied state
      */
-    public init(buttonDenied: ButtonColor){
+    public init(buttonDenied: ButtonColor) {
         self.init()
         self.buttonDenied = buttonDenied
     }
@@ -66,28 +62,39 @@ public struct AllButtonColors: Equatable {
      Both `primaryColor` and `tertiaryColor` are non-required parameters. Colors without a given initializer parameter will be displayed with the default color.
      
      - parameters:
-        - primaryColor: The primary color, characterized by the default blue
-        - tertiaryColor: The tertiary color, characterized by the default alert red
+     - primaryColor: The primary color, characterized by the default blue
+     - tertiaryColor: The tertiary color, characterized by the default alert red
      */
-    public init(primaryColor: Color?=nil, tertiaryColor: Color?=nil){
+    public init(primaryColor: Color? = nil, tertiaryColor: Color? = nil) {
         self.primaryColor = primaryColor ?? Color(.systemBlue)
         self.tertiaryColor = tertiaryColor ?? Color(.systemRed)
-        self.buttonIdle = ButtonColor(foregroundColor: self.primaryColor,
-                                      backgroundColor: Color(.systemGray5))
-        self.buttonAllowed = ButtonColor(foregroundColor: Color(.white),
-                                         backgroundColor: self.primaryColor)
-        self.buttonDenied = ButtonColor(foregroundColor: Color(.white),
-                                        backgroundColor: self.tertiaryColor)
+        
+        self.buttonIdle = ButtonColor(
+            foregroundColor: self.primaryColor,
+            backgroundColor: Color(.systemGray5)
+        )
+        
+        self.buttonAllowed = ButtonColor(
+            foregroundColor: Color(.white),
+            backgroundColor: self.primaryColor
+        )
+        
+        self.buttonDenied = ButtonColor(
+            foregroundColor: Color(.white),
+            backgroundColor: self.tertiaryColor
+        )
     }
     
-    //MARK: Button Color States
-    
+    // MARK: Button Color States
     @usableFromInline var primaryColor: Color
     var tertiaryColor: Color
+    
     ///The button color configuration under idle status defined by a `ButtonColor` struct
     public var buttonIdle: ButtonColor
+    
     ///The button color configuration under allowed status defined by a `ButtonColor` struct
     public var buttonAllowed: ButtonColor
+    
     ///The button color configuration under denied status defined by a `ButtonColor` struct
     public var buttonDenied: ButtonColor
 }

@@ -1,21 +1,14 @@
-//
-//  JMBluetoothPermissionManager.swift
-//
-//
-//  Created by Jevon Mao on 1/31/21.
-//
-
 import CoreBluetooth
 import UIKit
 import CorePermissionsSwiftUI
 
-@available(iOS 13.0, tvOS 13.0, *)
+@available(iOS 13, tvOS 13, *)
 public extension PermissionManager {
-    ///Permission that allows app to access device's bluetooth technologies
+    /// Permission that allows app to access device's bluetooth technologies
     static let bluetooth = JMBluetoothPermissionManager()
 }
 
-@available(iOS 13.0, tvOS 13.0, *)
+@available(iOS 13, tvOS 13, *)
 final public class JMBluetoothPermissionManager: PermissionManager {
     private var completion: ((Bool, Error?) -> Void)?
     private var manager: CBCentralManager?
@@ -27,11 +20,13 @@ final public class JMBluetoothPermissionManager: PermissionManager {
     public override var authorizationStatus: AuthorizationStatus {
         switch CBCentralManager().authorization{
         case .allowedAlways:
-            return .authorized
+            .authorized
+        
         case .notDetermined:
-            return .notDetermined
+            .notDetermined
+        
         default:
-            return .denied
+            .denied
         }
     }
     
@@ -41,14 +36,16 @@ final public class JMBluetoothPermissionManager: PermissionManager {
     }
 }
 
-@available(iOS 13.0, tvOS 13.0, *)
+@available(iOS 13, tvOS 13, *)
 extension JMBluetoothPermissionManager: CBCentralManagerDelegate {
     public func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch central.authorization {
         case .notDetermined:
             break
+            
         case .allowedAlways:
             self.completion?(true, nil)
+            
         default:
             self.completion?(false, nil)
         }

@@ -1,14 +1,7 @@
-//
-//  MainTextModifiers.swift
-//  
-//
-//  Created by Jevon Mao on 2/2/21.
-//
-
 import SwiftUI
 
 // MARK: Configure Header and Description Texts
-@available(iOS 13.0, tvOS 13.0, *)
+@available(iOS 13, tvOS 13, *)
 public extension CustomizableView {
     /**
      Displays a customized main header text
@@ -53,4 +46,3 @@ public extension CustomizableView {
         return self
     }
 }
-

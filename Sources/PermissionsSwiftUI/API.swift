@@ -1,10 +1,3 @@
-//
-//  API.swift
-//  
-//
-//  Created by Jevon Mao on 6/12/21.
-//
-
 import CorePermissionsSwiftUI
 import PermissionsSwiftUITracking
 import PermissionsSwiftUIBluetooth
@@ -22,7 +15,7 @@ import PermissionsSwiftUIPhoto
 import PermissionsSwiftUIReminder
 import PermissionsSwiftUISpeech
 
-@available(iOS 13.0, tvOS 13.0, *)
+@available(iOS 13, tvOS 13, *)
 public extension Array where Element == PermissionManager {
     
     /**
@@ -31,19 +24,18 @@ public extension Array where Element == PermissionManager {
      The `allCases` property extending the Array type will return all PermissionsSwiftUI's supported permission managers, in an array of `PermissionManager`. A common use case of this property would be showcasing all permissions, or for debugging purposes.
      */
     static var allCases: [PermissionManager] {
-        #if !os(tvOS)
+#if !os(tvOS)
         if #available(iOS 14, *) {
-            return [.location,.locationAlways,.photo, .microphone,.camera,.notification,.calendar,.bluetooth,.contacts,.motion,.reminders,.speech,.tracking,.health(categories: .init())]
+            [.location,.locationAlways,.photo, .microphone,.camera,.notification,.calendar,.bluetooth,.contacts,.motion,.reminders,.speech,.tracking,.health(categories: .init())]
         } else {
-            return [.location,.locationAlways,.photo,.microphone,.camera,.notification,.calendar,.bluetooth,.contacts,.motion,.reminders,.speech,.health(categories: .init())]
+            [.location,.locationAlways,.photo,.microphone,.camera,.notification,.calendar,.bluetooth,.contacts,.motion,.reminders,.speech,.health(categories: .init())]
         }
-        #else
+#else
         if #available(tvOS 14, *) {
-        return [.location, .photo, .notification, .bluetooth, .tracking]
+            [.location, .photo, .notification, .bluetooth, .tracking]
+        } else {
+            [.location, .photo, .notification, .bluetooth]
         }
-        else {
-        return [.location, .photo, .notification, .bluetooth]
-        }
-        #endif
+#endif
     }
 }

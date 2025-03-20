@@ -1,10 +1,3 @@
-//
-//  String.swift
-//  
-//
-//  Created by Jevon Mao on 12/27/21.
-//
-
 import Foundation
 
 extension String {

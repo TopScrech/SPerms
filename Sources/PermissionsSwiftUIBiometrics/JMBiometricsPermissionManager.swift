@@ -1,18 +1,10 @@
-//
-//  JMBiometricsPermissionManager.swift
-//
-//
-//  Created by Nevio Hirani on 20.01.24.
-//  Github: N3v1  -
-//
-
 import UIKit
 
 import LocalAuthentication
 import CorePermissionsSwiftUI
 
 /// A permission manager for handling biometric authentication requests.
-@available(iOS 13.0, macOS 11.0, *)
+@available(iOS 13, macOS 11, *)
 public extension PermissionManager {
     /// Shared instance for managing biometric permissions.
     static let opticBiometrics = JMBiometricPermissionManager()
@@ -26,7 +18,7 @@ public extension PermissionManager {
 ///
 /// ## Usage
 /// To utilize biometric authentication in your application, follow the guide in the README.md
-@available(iOS 13.0, macOS 11.0, *)
+@available(iOS 13, macOS 11, *)
 public final class JMBiometricPermissionManager: PermissionManager {
     
     public override var permissionType: PermissionType {
@@ -47,6 +39,7 @@ public final class JMBiometricPermissionManager: PermissionManager {
             case LAError.Code.biometryLockout.rawValue, LAError.Code.biometryNotAvailable.rawValue,
                 LAError.Code.biometryNotEnrolled.rawValue:
                 return .denied
+                
             default:
                 return .notDetermined
             }
@@ -67,9 +60,9 @@ public final class JMBiometricPermissionManager: PermissionManager {
         context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: localizedReason) { success, error in
             DispatchQueue.main.async {
                 if success {
-                    completion(true, nil)  // Authorized (true), no error
+                    completion(true, nil) // Authorized (true), no error
                 } else {
-                    completion(false, error)  // Not authorized (false), with error
+                    completion(false, error) // Not authorized (false), with error
                 }
             }
         }

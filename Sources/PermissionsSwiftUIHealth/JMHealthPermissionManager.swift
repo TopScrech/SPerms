@@ -1,16 +1,8 @@
-//
-//  JMHealthPermissionManager.swift
-//  
-//
-//  Created by Jevon Mao on 2/10/21.
-//
-
-import Foundation
 #if !os(tvOS) && PERMISSIONSWIFTUI_HEALTH
 import CorePermissionsSwiftUI
 import HealthKit
 
-@available(iOS 13.0, tvOS 13.0, *)
+@available(iOS 13, tvOS 13, *)
 public extension PermissionManager {
     /**
      Permission that allows app to access healthkit information
@@ -29,9 +21,8 @@ public extension PermissionManager {
     }
 }
 
-@available(iOS 13.0, tvOS 13.0, *)
+@available(iOS 13, tvOS 13, *)
 public class JMHealthPermissionManager: PermissionManager {
-    
     typealias authorizationStatus = HKAuthorizationStatus
     typealias CountComparison = (Int, Int)
     var categories: HKAccess
@@ -41,7 +32,7 @@ public class JMHealthPermissionManager: PermissionManager {
             .health
         }
     }
-
+    
     init(categories: HKAccess) {
         self.categories = categories
     }
@@ -80,12 +71,12 @@ public class JMHealthPermissionManager: PermissionManager {
             }
             return status
         }
-
+        
     }
     func mapPermissionAuthorizationStatus(for permissions: Set<HKSampleType>,
-                                        forCount allowDenyCount: inout CountComparison) {
+                                          forCount allowDenyCount: inout CountComparison) {
         for sampleType in permissions {
-            switch healthStore.authorizationStatus(for: sampleType){
+            switch healthStore.authorizationStatus(for: sampleType) {
             case .sharingAuthorized:
                 allowDenyCount.0 += 1
             case .sharingDenied:
@@ -97,9 +88,9 @@ public class JMHealthPermissionManager: PermissionManager {
     }
     override public func requestPermission(completion: @escaping (Bool, Error?) -> Void) {
         guard HKHealthStore.isHealthDataAvailable() else {
-            #if DEBUG
+#if DEBUG
             print("PermissionsSwiftUI - Health data is not available")
-            #endif
+#endif
             completion(false, createUnavailableError())
             return
         }
@@ -112,15 +103,15 @@ public class JMHealthPermissionManager: PermissionManager {
     func createUnavailableError() -> NSError {
         let userInfo: [String: Any] = [
             NSLocalizedDescriptionKey:
-              NSLocalizedString("Health permission request couldn't be completed.",
-                                comment: "localizedErrorDescription"),
+                NSLocalizedString("Health permission request couldn't be completed.",
+                                  comment: "localizedErrorDescription"),
             NSLocalizedFailureReasonErrorKey:
-                NSLocalizedString("Health data is not available on the current device, the permission cannot be requested.", 
+                NSLocalizedString("Health data is not available on the current device, the permission cannot be requested.",
                                   comment: "localizedErrorFailureReason"),
             NSLocalizedRecoverySuggestionErrorKey:
-              NSLocalizedString("Verify that HealthKit is available on the current device.",
-                                comment: "localizedErrorRecoverSuggestion")
-          ]
+                NSLocalizedString("Verify that HealthKit is available on the current device.",
+                                  comment: "localizedErrorRecoverSuggestion")
+        ]
         return NSError(domain: "com.jevonmao.permissionsswiftui", code: 1, userInfo: userInfo)
     }
 }
