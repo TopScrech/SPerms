@@ -24,7 +24,7 @@ struct ModalView: View {
                     .padding()
                     .frame(maxWidth: UIScreen.main.bounds.width - 30)
                 
-                Text(mainText.bottomDescription)
+                Text(mainText.bottomDescription, bundle: .module)
                     .font(.system(.callout, design: .rounded))
                     .foregroundColor(Color(.systemGray))
                     .padding(.horizontal)
