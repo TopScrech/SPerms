@@ -144,7 +144,7 @@ let package = Package(
         .testTarget(
             name: "PermissionsSwiftUISmallScreenTests",
             dependencies: ["SnapshotTesting"] + permissionsTargets
-                .map{
+                .map {
                     Target.Dependency(stringLiteral: $0.name)
                 },
             exclude: [],

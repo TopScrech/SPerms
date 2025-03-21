@@ -8,7 +8,6 @@ import SwiftUI
  */
 @available(iOS 13, tvOS 13, *)
 public class PermissionStore: ObservableObject {
-    
     // MARK: Creating a new store
     /**
      Initalizes and returns a new instance of `PermissionStore`

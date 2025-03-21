@@ -36,6 +36,7 @@ public struct ConfigStore {
     // MARK: `onAppear` and `onDisappear` Executions
     ///Override point for executing action when PermissionsSwiftUI view appears
     public var onAppear: (()->Void)?
+    
     ///Override point for executing action when PermissionsSwiftUI view disappears
     public var onDisappear: (()->Void)?
     /**
