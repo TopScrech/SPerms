@@ -21,20 +21,17 @@ struct HeaderView: View {
         VStack {
             VStack {
                 if style == .alert {
-                    Text("PERMISSIONS REQUEST")
+                    Text("PERMISSIONS REQUEST", bundle: .module)
                         .font(.footnote)
                         .fontWeight(.semibold)
                         .foregroundColor(Color(.systemGray2))
-                    
-                    // Make frame width take up as much space as possible, to make space for left align text
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
+                        .frame(maxWidth: .infinity, alignment: .leading)                    
                         .padding(.vertical, -5)
                         .accessibility(identifier: "Alert header")
                 }
                 
                 HStack {
-                    Text(mainText.headerText)
+                    Text(mainText.headerText, bundle: .module)
                         .font(.system(style == .alert ? .title : .largeTitle, design: .rounded))
                         .fontWeight(.bold)
                         .lineLimit(1)
@@ -65,7 +62,7 @@ struct HeaderView: View {
             .padding(.horizontal, style == .alert ? 0 : 16)
             
             if style == .modal {
-                Text(mainText.headerDescription)
+                Text(mainText.headerDescription, bundle: .module)
                     .font(.system(.body, design: .rounded))
                     .fontWeight(.medium)
                     .foregroundColor(Color(.systemGray))

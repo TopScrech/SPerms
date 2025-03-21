@@ -64,7 +64,7 @@ struct PermissionSectionCell: View {
                 .accessibility(identifier: "Permission icon")
             
             VStack(alignment: .leading) {
-                Text(currentPermission.title)
+                Text(currentPermission.title, bundle: .module)
                     .font(.system(size: fontSizeConstant))
                     .bold()
                     .lineLimit(1)
@@ -72,7 +72,7 @@ struct PermissionSectionCell: View {
                     .layoutPriority(1)
                     .accessibility(identifier: "Permission title")
                 
-                Text(currentPermission.description)
+                Text(currentPermission.description, bundle: .module)
                     .font(.system(size: smallFontSizeConstant))
                     .lineLimit(3)
                     .compatibleForegroundStyle(store.configStore.permissionDescriptionForeground)

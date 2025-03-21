@@ -29,7 +29,7 @@ struct DialogView: View {
                 Divider()
             }
             
-            Text(mainText.bottomDescription)
+            Text(mainText.bottomDescription, bundle: .module)
                 .font(.system(.caption, design: .rounded))
                 .fontWeight(.regular)
                 .foregroundColor(Color(.systemGray))
