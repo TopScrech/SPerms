@@ -46,29 +46,23 @@ public struct ConfigStore {
     public var onDisappearHandler: ((_ successful: [JMResult]?, _ erroneous: [JMResult]?)->Void)?
 }
 
-/**
- Encapsulates the surrounding texts and title
- */
+/// Encapsulates the surrounding texts and title
 public struct MainTexts: Equatable {
-    //Whether the text properties have been changed and customized
+    // Whether the text properties have been changed and customized
     var contentChanged: Bool {
         // Represents the default, unchanged struct with default property values
-        if self == MainTexts() {
-            false
-        } else {
-            true
-        }
+        self != MainTexts()
     }
     
-    ///Text to display for header text
+    /// Text to display for header text
     public var headerText: LocalizedStringKey = "permission_header"
     
-    ///Text to display for header description text
+    /// Text to display for header description text
     public var headerDescription: LocalizedStringKey = "permission_primary_label"
     
-    ///Text to display for bottom part description text
+    /// Text to display for bottom part description text
     public var bottomDescription: LocalizedStringKey = "permission_secondary_label"
     
-    ///Whether to use the alternative "NEXT" in place of "ALLOW" for the allow button label
+    /// Whether to use the alternative "NEXT" in place of "ALLOW" for the allow button label
     public var useAltButtonLabel = false
 }
