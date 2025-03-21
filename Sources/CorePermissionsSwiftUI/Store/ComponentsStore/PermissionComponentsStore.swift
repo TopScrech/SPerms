@@ -66,7 +66,7 @@ public struct PermissionComponentsStore {
     ///The displayed text and image icon for the notification center permission
     public var notificationPermission = JMPermission(
         imageIcon: AnyView(Image(systemName: "bell.fill")),
-        title: "Notification",
+        title: "Notifications",
         description: "Allow to send notifications"
     )
     

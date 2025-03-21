@@ -84,7 +84,7 @@ final class PermissionsSwiftUISmallScreenTests: XCTestCase {
     //        ))
     //        XCTAssertEqual(notificationPermission, JMPermission(
     //            imageIcon: AnyView(Image(systemName: "bell.fill")),
-    //            title: "Notification",
+    //            title: "Notifications",
     //            description: "Allow to send notifications", authorized: false
     //        ))
     //        XCTAssertEqual(healthPermission, JMPermission(
