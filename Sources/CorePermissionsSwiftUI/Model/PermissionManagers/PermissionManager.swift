@@ -19,7 +19,7 @@ open class PermissionManager: NSObject, Identifiable {
     }
     
     ///The authorization status of the permission
-    open var authorizationStatus: AuthorizationStatus  {
+    open var authorizationStatus: AuthorizationStatus {
         get {
             preconditionFailure("This property must be overridden")
         }

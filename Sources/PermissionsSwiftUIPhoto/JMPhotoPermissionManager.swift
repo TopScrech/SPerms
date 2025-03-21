@@ -37,7 +37,7 @@ public final class JMPhotoPermissionManager: PermissionManager {
         .photo
     }
 
-    public override var authorizationStatus: AuthorizationStatus  {
+    public override var authorizationStatus: AuthorizationStatus {
         var result: PHAuthorizationStatus? = nil
         switch requestedAccessLevel {
         case .legacy:

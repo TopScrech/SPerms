@@ -17,7 +17,7 @@ public final class JMMotionPermissionManager: PermissionManager {
         .motion
     }
     
-    public override var authorizationStatus: AuthorizationStatus  {
+    public override var authorizationStatus: AuthorizationStatus {
         switch CMMotionActivityManager.authorizationStatus() {
         case .authorized: .authorized
         case .notDetermined: .notDetermined

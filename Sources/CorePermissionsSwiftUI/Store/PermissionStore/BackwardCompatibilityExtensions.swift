@@ -53,7 +53,7 @@ public extension PermissionStore {
     }
 
     ///Whether to auto check for authorization status before showing, and show the view only if permission is in `notDetermined`
-    var autoCheckAlertAuth: Bool  {
+    var autoCheckAlertAuth: Bool {
         get {configStore.autoCheckAuth}
         set {configStore.autoCheckAuth = newValue}
     }
