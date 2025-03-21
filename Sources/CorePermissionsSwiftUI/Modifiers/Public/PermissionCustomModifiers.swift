@@ -24,7 +24,7 @@ public extension CustomizableView {
      - description: The description text (optional)
      */
     
-    @inlinable func setPermissionComponent(for permission: PermissionType, image: AnyView, title: LocalizedStringKey? = nil, description: LocalizedStringKey? = nil) -> some CustomizableView {
+    @inlinable func setPermissionComponent(_ permission: PermissionType, image: AnyView, title: LocalizedStringKey? = nil, description: LocalizedStringKey? = nil) -> some CustomizableView {
         store.permissionComponentsStore.getPermissionComponent(for: permission) { permissionComponent in
             permissionComponent.title = title ?? permissionComponent.title
             permissionComponent.imageIcon = image
@@ -51,7 +51,7 @@ public extension CustomizableView {
      - title: The title text
      */
     
-    @inlinable func setPermissionComponent(for permission: PermissionType, title: LocalizedStringKey) -> some CustomizableView {
+    @inlinable func setPermissionComponent(_ permission: PermissionType, title: LocalizedStringKey) -> some CustomizableView {
         store.permissionComponentsStore.getPermissionComponent(for: permission) { permissionComponent in
             permissionComponent.title = title
         }
@@ -76,7 +76,7 @@ public extension CustomizableView {
      - description: The description text
      */
     
-    @inlinable func setPermissionComponent(for permission: PermissionType, description: LocalizedStringKey) -> some CustomizableView {
+    @inlinable func setPermissionComponent(_ permission: PermissionType, description: LocalizedStringKey) -> some CustomizableView {
         store.permissionComponentsStore.getPermissionComponent(for: permission) {
             $0.description = description
         }
