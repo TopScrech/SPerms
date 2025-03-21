@@ -8,43 +8,38 @@ let permissionsTargets: [Target] = [
         name: "CorePermissionsSwiftUI", // Internal module for shared code
         dependencies: ["Introspect"],
         exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("Resources"), .process("loc")]
+        resources: [.process("Resources/")]
     ),
     .target(
         name: "PermissionsSwiftUI", // Maintain backward compatibility - access to all permissions
         dependencies: ["Introspect", "CorePermissionsSwiftUI", "PermissionsSwiftUITracking", "PermissionsSwiftUIBluetooth", "PermissionsSwiftUICalendar", "PermissionsSwiftUICamera", "PermissionsSwiftUIContacts", "PermissionsSwiftUILocation", "PermissionsSwiftUILocationAlways", "PermissionsSwiftUIMicrophone", "PermissionsSwiftUIMotion", "PermissionsSwiftUIMusic", "PermissionsSwiftUINotification", "PermissionsSwiftUIPhoto", "PermissionsSwiftUIReminder", "PermissionsSwiftUISpeech", "PermissionsSwiftUIHealth"],
         exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")]
+        resources: [.process("Resources/")]
     ),
     .target(
         name: "PermissionsSwiftUIBluetooth",
         dependencies: ["Introspect", "CorePermissionsSwiftUI"],
-        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")]
+        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"]
     ),
     .target(
         name: "PermissionsSwiftUICalendar",
         dependencies: ["Introspect", "CorePermissionsSwiftUI", "PermissionsSwiftUIEvent"],
-        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")]
+        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"]
     ),
     .target(
         name: "PermissionsSwiftUICamera",
         dependencies: ["Introspect", "CorePermissionsSwiftUI"],
-        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")]
+        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"]
     ),
     .target(
         name: "PermissionsSwiftUIContacts",
         dependencies: ["Introspect", "CorePermissionsSwiftUI"],
-        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")]
+        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"]
     ),
     .target(
         name: "PermissionsSwiftUIHealth",
         dependencies: ["Introspect", "CorePermissionsSwiftUI"],
         exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")],
         swiftSettings: [
             .define("PERMISSIONSWIFTUI_HEALTH")
         ]
@@ -53,7 +48,6 @@ let permissionsTargets: [Target] = [
         name: "PermissionsSwiftUILocationAlways",
         dependencies: ["Introspect", "CorePermissionsSwiftUI"],
         exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")],
         swiftSettings: [
             .define("PERMISSIONSWIFTUI_LOCATION")
         ]
@@ -62,7 +56,6 @@ let permissionsTargets: [Target] = [
         name: "PermissionsSwiftUILocation",
         dependencies: ["Introspect", "CorePermissionsSwiftUI"],
         exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")],
         swiftSettings: [
             .define("PERMISSIONSWIFTUI_LOCATION")
         ]
@@ -70,26 +63,22 @@ let permissionsTargets: [Target] = [
     .target(
         name: "PermissionsSwiftUIMicrophone",
         dependencies: ["Introspect", "CorePermissionsSwiftUI"],
-        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")]
+        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"]
     ),
     .target(
         name: "PermissionsSwiftUIMotion",
         dependencies: ["Introspect", "CorePermissionsSwiftUI"],
-        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")]
+        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"]
     ),
     .target(
         name: "PermissionsSwiftUIMusic",
         dependencies: ["Introspect", "CorePermissionsSwiftUI"],
-        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")]
+        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"]
     ),
     .target(
         name: "PermissionsSwiftUINotification",
         dependencies: ["Introspect", "CorePermissionsSwiftUI"],
         exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")],
         swiftSettings: [
             .define("PERMISSIONSWIFTUI_NOTIFICATION")
         ]
@@ -98,7 +87,6 @@ let permissionsTargets: [Target] = [
         name: "PermissionsSwiftUIPhoto",
         dependencies: ["Introspect", "CorePermissionsSwiftUI"],
         exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")],
         swiftSettings: [
             .define("PERMISSIONSWIFTUI_PHOTO")
         ]
@@ -106,38 +94,32 @@ let permissionsTargets: [Target] = [
     .target(
         name: "PermissionsSwiftUIReminder",
         dependencies: ["Introspect", "CorePermissionsSwiftUI", "PermissionsSwiftUIEvent"],
-        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")]
+        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"]
     ),
     .target(
         name: "PermissionsSwiftUISpeech",
         dependencies: ["Introspect", "CorePermissionsSwiftUI"],
-        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")]
+        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"]
     ),
     .target(
         name: "PermissionsSwiftUITracking",
         dependencies: ["Introspect", .target(name: "CorePermissionsSwiftUI")],
-        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")]
+        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"]
     ),
     .target(
         name: "PermissionsSwiftUISiri",
         dependencies: ["Introspect", "CorePermissionsSwiftUI"],
-        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")]
+        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"]
     ),
     .target(
         name: "PermissionsSwiftUIBiometrics",
         dependencies: ["Introspect", .target(name: "CorePermissionsSwiftUI")],
-        exclude: ["../../Tsts/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")]
+        exclude: ["../../Tsts/PermissionsSwiftUITests/__Snapshots__"]
     ),
     .target(
         name: "PermissionsSwiftUIEvent",
         dependencies: ["Introspect", .target(name: "CorePermissionsSwiftUI")],
-        exclude: ["../../Tsts/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")]
+        exclude: ["../../Tsts/PermissionsSwiftUITests/__Snapshots__"]
     )
 ]
 
