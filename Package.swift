@@ -8,13 +8,12 @@ let permissionsTargets: [Target] = [
         name: "CorePermissionsSwiftUI", // Internal module for shared code
         dependencies: ["Introspect"],
         exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("Resources/")]
+        resources: [.process("Resources")]
     ),
     .target(
         name: "PermissionsSwiftUI", // Maintain backward compatibility - access to all permissions
         dependencies: ["Introspect", "CorePermissionsSwiftUI", "PermissionsSwiftUITracking", "PermissionsSwiftUIBluetooth", "PermissionsSwiftUICalendar", "PermissionsSwiftUICamera", "PermissionsSwiftUIContacts", "PermissionsSwiftUILocation", "PermissionsSwiftUILocationAlways", "PermissionsSwiftUIMicrophone", "PermissionsSwiftUIMotion", "PermissionsSwiftUIMusic", "PermissionsSwiftUINotification", "PermissionsSwiftUIPhoto", "PermissionsSwiftUIReminder", "PermissionsSwiftUISpeech", "PermissionsSwiftUIHealth"],
-        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("Resources/")]
+        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"]
     ),
     .target(
         name: "PermissionsSwiftUIBluetooth",
