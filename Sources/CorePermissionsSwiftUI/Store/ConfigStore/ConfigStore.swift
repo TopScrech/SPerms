@@ -61,13 +61,13 @@ public struct MainTexts: Equatable {
     }
     
     ///Text to display for header text
-    public var headerText = "permission_header".localized
+    public var headerText: LocalizedStringKey = "permission_header"
     
     ///Text to display for header description text
-    public var headerDescription = "permission_primary_label".localized
+    public var headerDescription: LocalizedStringKey = "permission_primary_label"
     
     ///Text to display for bottom part description text
-    public var bottomDescription = "permission_secondary_label".localized
+    public var bottomDescription: LocalizedStringKey = "permission_secondary_label"
     
     ///Whether to use the alternative "NEXT" in place of "ALLOW" for the allow button label
     public var useAltButtonLabel = false

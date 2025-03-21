@@ -344,7 +344,7 @@ final class PermissionsSwiftUITests: XCTestCase {
     //        switch permission {
     //        default:
     //            let views:[AnyView] = AllowButtonStatus.allCases.map{
-    //                let view = PermissionSectionCell(permissionManager: permission, allowButtonStatus: $0, showing: .constant(true))
+    //                let view = PermissionSectionCell(.constant(true), permissionManager: permission, allowButtonStatus: $0)
     //                    .withEnvironmentObjects(store: PermissionStore(), permissionStyle: .modal)
     //                    .referenceFrameCell()
     //                return AnyView(view)
@@ -427,21 +427,23 @@ final class PermissionsSwiftUITests: XCTestCase {
     
     func testAllowButtonAltLabel() {
         var store = PermissionStore()
-        let normalView = PermissionSectionCell(permissionManager: .calendar,
-                                               showing: .constant(true))
+        
+        let normalView = PermissionSectionCell(.constant(true), permissionManager: .calendar)
             .environmentObject(store)
-            .environmentObject(PermissionSchemaStore(store: store,
-                                                     permissionViewStyle: .modal))
+            .environmentObject(PermissionSchemaStore(
+                store: store,
+                permissionViewStyle: .modal
+            ))
+        
         assertSnapshot(matching: normalView, as: .image(precision: 0.99))
         store.configStore.mainTexts.useAltButtonLabel = true
-        let altView = PermissionSectionCell(permissionManager: .calendar,
-                                            showing: .constant(true))
+        
+        let altView = PermissionSectionCell(.constant(true), permissionManager: .calendar)
             .environmentObject(store)
-            .environmentObject(PermissionSchemaStore(store: store,
-                                                     permissionViewStyle: .modal))
+            .environmentObject(PermissionSchemaStore(store: store, permissionViewStyle: .modal))
+        
         assertSnapshot(matching: altView, as: .image(precision: 0.99))
     }
-    
     
     //    func testAlertViewSinglePermission() {
     //        store.updateStore(property: {$0.autoCheckAlertAuth=$1}, value: false)
@@ -506,8 +508,7 @@ final class PermissionsSwiftUITests: XCTestCase {
     //    func testPermissionSectionButtonAuthorized() {
     //        let permission = PermissionType.camera
     //
-    //        let sectionCell = PermissionSectionCell(permission: permission,
-    //                                                showModal: .constant(false), isAlert: false)
+    //        let sectionCell = PermissionSectionCell(permission: permission, showModal: .constant(false), isAlert: false)
     //        let queue = DispatchQueue(label: "testPermissionSectionHandling")
     //        sectionCell.handleButtonState(for: true)
     //        queue.sync {}
@@ -516,8 +517,7 @@ final class PermissionsSwiftUITests: XCTestCase {
     //    func testPermissionSectionButtonDenied() {
     //        let permission = PermissionType.camera
     //
-    //        let sectionCell = PermissionSectionCell(permission: permission,
-    //                                                showModal: .constant(false), isAlert: false)
+    //        let sectionCell = PermissionSectionCell(permission: permission, showModal: .constant(false), isAlert: false)
     //        let queue = DispatchQueue(label: "testPermissionSectionHandling")
     //        sectionCell.handleButtonState(for: false)
     //        queue.sync {}
@@ -526,8 +526,7 @@ final class PermissionsSwiftUITests: XCTestCase {
     //    func testAlertPermissionSectionButtonAuthorized() {
     //        let permission = PermissionType.camera
     //
-    //        let sectionCell = PermissionSectionCell(permission: permission,
-    //                                                showModal: .constant(false), isAlert: true)
+    //        let sectionCell = PermissionSectionCell(permission: permission, showModal: .constant(false), isAlert: true)
     //        let queue = DispatchQueue(label: "testPermissionSectionHandling")
     //        sectionCell.handleButtonState(for: true)
     //        queue.sync {}
@@ -536,8 +535,7 @@ final class PermissionsSwiftUITests: XCTestCase {
     //    func testAlertPermissionSectionButtonDenied() {
     //        let permission = PermissionType.camera
     //
-    //        let sectionCell = PermissionSectionCell(permission: permission,
-    //                                                showModal: .constant(false), isAlert: true)
+    //        let sectionCell = PermissionSectionCell(permission: permission, showModal: .constant(false), isAlert: true)
     //        let queue = DispatchQueue(label: "testPermissionSectionHandling")
     //        sectionCell.handleButtonState(for: false)
     //        queue.sync {}

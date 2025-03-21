@@ -6,22 +6,25 @@ struct ModalView: View {
     @EnvironmentObject var schemaStore: PermissionSchemaStore
     
     @Binding var showModal: Bool
-    var mainText: MainTexts{
+    
+    var mainText: MainTexts {
         store.mainTexts.contentChanged ? store.mainTexts : store.configStore.mainTexts
     }
     
     var body: some View {
         ScrollView {
             VStack {
-                HeaderView(exitButtonAction: {showModal = schemaStore.shouldStayInPresentation}, mainText: mainText)
+                HeaderView(mainText) {
+                    showModal = schemaStore.shouldStayInPresentation
+                }
                 
-                PermissionSection(showing: $showModal)
+                PermissionSection($showModal)
                     .background(Color(.systemBackground))
                     .clipShape(.rect(cornerRadius: 15))
                     .padding()
                     .frame(maxWidth: UIScreen.main.bounds.width - 30)
                 
-                Text(.init(mainText.bottomDescription))
+                Text(mainText.bottomDescription)
                     .font(.system(.callout, design: .rounded))
                     .foregroundColor(Color(.systemGray))
                     .padding(.horizontal)

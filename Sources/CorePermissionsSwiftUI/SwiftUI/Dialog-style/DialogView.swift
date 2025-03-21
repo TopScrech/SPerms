@@ -18,12 +18,14 @@ struct DialogView: View {
     
     var body: some View {
         VStack {
-            HeaderView(exitButtonAction: {showAlert = schemaStore.shouldStayInPresentation}, mainText: mainText)
-                .padding(.bottom, paddingSize/1.5)
+            HeaderView(mainText) {
+                showAlert = schemaStore.shouldStayInPresentation
+            }
+            .padding(.bottom, paddingSize / 1.5)
             
-            PermissionSection(showing: $showAlert)
+            PermissionSection($showAlert)
             
-            if store.permissions.count < 2{
+            if store.permissions.count < 2 {
                 Divider()
             }
             

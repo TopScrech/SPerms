@@ -76,12 +76,18 @@ import Introspect
     //if DEBUG to ensure these functions are never used in production. They are for unit testing only.
 #if DEBUG
     func testCallOnAppear() {
-        guard let onAppear = store.configStore.onAppear else {return}
+        guard let onAppear = store.configStore.onAppear else {
+            return
+        }
+        
         onAppear()
     }
     
     func testCallOnDisappear() {
-        guard let onDisappear = store.configStore.onDisappear else {return}
+        guard let onDisappear = store.configStore.onDisappear else {
+            return
+        }
+        
         onDisappear()
     }
 #endif

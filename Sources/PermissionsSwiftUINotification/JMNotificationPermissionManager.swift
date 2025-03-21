@@ -27,14 +27,14 @@ public final class JMNotificationPermissionManager: PermissionManager {
         
         semaphore.wait()
         
-        guard let settings = notificationSettings else{
+        guard let settings = notificationSettings else {
 #if DEBUG
             print("Notification settings is nil while getting authorization status for JMNotificationPermissionManager")
 #endif
             return .notDetermined
         }
         
-        switch settings.authorizationStatus{
+        switch settings.authorizationStatus {
         case .authorized:
             return .authorized
             
@@ -55,7 +55,7 @@ public final class JMNotificationPermissionManager: PermissionManager {
     var notificationManager = UNUserNotificationCenter.current()
     
     override public func requestPermission(completion: @escaping (Bool, Error?) -> Void) {
-        notificationManager.requestAuthorization(options: [.badge,.alert,.sound]) { granted, error in
+        notificationManager.requestAuthorization(options: [.badge, .alert, .sound]) { granted, error in
             completion(granted, error)
             
         }

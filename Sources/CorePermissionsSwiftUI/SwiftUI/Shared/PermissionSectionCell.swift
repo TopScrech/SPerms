@@ -6,18 +6,27 @@ enum AllowButtonStatus: CaseIterable {
 
 @available(iOS 13, tvOS 13, *)
 struct PermissionSectionCell: View {
-    @State var permissionManager: PermissionManager
-    @State var allowButtonStatus: AllowButtonStatus = .idle
-    @Binding var showing: Bool
     @EnvironmentObject var store: PermissionStore
     @EnvironmentObject var schemaStore: PermissionSchemaStore
     
-    //Empty unauthorized array means all permissions have been interacted
-    var shouldAutoDismiss: Bool {FilterPermissions.filterForUnauthorized(with: store.permissions, store: schemaStore).isEmpty}
+    @Binding private var showing: Bool
+    @State private var permissionManager: PermissionManager
+    @State private var allowButtonStatus: AllowButtonStatus
     
-    //Computed constants based on device size for dynamic UI
+    init(_ showing: Binding<Bool>, permissionManager: PermissionManager, allowButtonStatus: AllowButtonStatus = .idle) {
+        _showing = showing
+        self.permissionManager = permissionManager
+        self.allowButtonStatus = allowButtonStatus
+    }
+    
+    // Empty unauthorized array means all permissions have been interacted
+    var shouldAutoDismiss: Bool {
+        FilterPermissions.filterForUnauthorized(with: store.permissions, store: schemaStore).isEmpty
+    }
+    
+    // Computed constants based on device size for dynamic UI
     var screenSizeConstant: CGFloat {
-        //Weirdass formulas that simply work
+        // Weirdass formulas that simply work
         screenSize.width < 400 ? 40 - (1000 - screenSize.width) / 80 : 40
     }
     
@@ -42,7 +51,9 @@ struct PermissionSectionCell: View {
     }
     
     var body: some View {
-        let currentPermission = schemaStore.permissionComponentsStore.getPermissionComponent(for: permissionManager.permissionType)
+        let currentPermission = schemaStore.permissionComponentsStore.getPermissionComponent(
+            for: permissionManager.permissionType
+        )
         
         HStack {
             currentPermission.imageIcon
@@ -73,19 +84,22 @@ struct PermissionSectionCell: View {
             Spacer()
             
             let useAltText = store.configStore.mainTexts.useAltButtonLabel
+            
             if schemaStore.permissionViewStyle == .alert {
                 //No animation for alert to avoid unwanted jiggle
-                AllowButtonSection(action: handlePermissionRequest,
-                                   useAltText: useAltText,
-                                   allowButtonStatus: $allowButtonStatus)
-            }
-            else{
+                AllowButtonSection(
+                    action: handlePermissionRequest,
+                    useAltText: useAltText,
+                    allowButtonStatus: $allowButtonStatus
+                )
+            } else {
                 //Separate case for modal style because an animation is needed for best user experience
-                AllowButtonSection(action: handlePermissionRequest,
-                                   useAltText: useAltText,
-                                   allowButtonStatus: $allowButtonStatus)
+                AllowButtonSection(
+                    action: handlePermissionRequest,
+                    useAltText: useAltText,
+                    allowButtonStatus: $allowButtonStatus
+                )
             }
-            
         }
         .fixedSize(horizontal: false, vertical: true)
         .padding(.vertical, vertPaddingConstant)
@@ -136,7 +150,11 @@ struct PermissionSectionCell: View {
             store.configStore.autoDismiss {
             DispatchQueue.main.asyncAfter(deadline: .now()+0.8) {
                 showing = false
-                guard let handler = store.configStore.onDisappearHandler else {return}
+                
+                guard let handler = store.configStore.onDisappearHandler else {
+                    return
+                }
+                
                 handler(schemaStore.successfulPermissions ?? nil, schemaStore.erroneousPermissions ?? nil)
             }
         }

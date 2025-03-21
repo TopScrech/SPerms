@@ -273,7 +273,7 @@ final class PermissionsSwiftUISmallScreenTests: XCTestCase {
     //    func testHealthManagerEmptyPermissions() {
     //        let mockManager = MockHealthManager()
     //        let manager = JMHealthPermissionManager(healthManager: mockManager)
-    //        store.updateStore(property: {$0.permissions=$1}, value: [.camera,.calendar])
+    //        store.updateStore(property: {$0.permissions=$1}, value: [.camera, .calendar])
     //        XCTAssertNil(manager.healthPermission)
     //        XCTAssertEqual(manager.authorizationStatus, .notDetermined)
     //        let expectation = self.expectation(description: "Wait for true result")
@@ -519,8 +519,7 @@ final class PermissionsSwiftUISmallScreenTests: XCTestCase {
     //    func testPermissionSectionButtonAuthorized() {
     //        let permission = PermissionType.camera
     //
-    //        let sectionCell = PermissionSectionCell(permission: permission,
-    //                                                showModal: .constant(false), isAlert: false)
+    //        let sectionCell = PermissionSectionCell(permission: permission, showModal: .constant(false), isAlert: false)
     //        let queue = DispatchQueue(label: "testPermissionSectionHandling")
     //        sectionCell.handleButtonState(for: true)
     //        queue.sync {}
@@ -529,8 +528,7 @@ final class PermissionsSwiftUISmallScreenTests: XCTestCase {
     //    func testPermissionSectionButtonDenied() {
     //        let permission = PermissionType.camera
     //
-    //        let sectionCell = PermissionSectionCell(permission: permission,
-    //                                                showModal: .constant(false), isAlert: false)
+    //        let sectionCell = PermissionSectionCell(permission: permission, showModal: .constant(false), isAlert: false)
     //        let queue = DispatchQueue(label: "testPermissionSectionHandling")
     //        sectionCell.handleButtonState(for: false)
     //        queue.sync {}
@@ -539,8 +537,7 @@ final class PermissionsSwiftUISmallScreenTests: XCTestCase {
     //    func testAlertPermissionSectionButtonAuthorized() {
     //        let permission = PermissionType.camera
     //
-    //        let sectionCell = PermissionSectionCell(permission: permission,
-    //                                                showModal: .constant(false), isAlert: true)
+    //        let sectionCell = PermissionSectionCell(permission: permission, showModal: .constant(false), isAlert: true)
     //        let queue = DispatchQueue(label: "testPermissionSectionHandling")
     //        sectionCell.handleButtonState(for: true)
     //        queue.sync {}
@@ -549,8 +546,7 @@ final class PermissionsSwiftUISmallScreenTests: XCTestCase {
     //    func testAlertPermissionSectionButtonDenied() {
     //        let permission = PermissionType.camera
     //
-    //        let sectionCell = PermissionSectionCell(permission: permission,
-    //                                                showModal: .constant(false), isAlert: true)
+    //        let sectionCell = PermissionSectionCell(permission: permission, showModal: .constant(false), isAlert: true)
     //        let queue = DispatchQueue(label: "testPermissionSectionHandling")
     //        sectionCell.handleButtonState(for: false)
     //        queue.sync {}

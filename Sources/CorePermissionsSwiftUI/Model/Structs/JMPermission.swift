@@ -42,7 +42,7 @@ public struct JMPermission: Equatable {
     public static func == (lhs: JMPermission, rhs: JMPermission) -> Bool {
         if lhs.title == rhs.title && lhs.description == rhs.description && lhs.authorized == rhs.authorized {
             true
-        } else{
+        } else {
             false
         }
     }
