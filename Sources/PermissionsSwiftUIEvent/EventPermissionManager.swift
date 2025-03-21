@@ -17,7 +17,7 @@ open class EventPermissionManager: PermissionManager {
     
     open var entityType: EKEntityType {
         get {
-            preconditionFailure("This property must be overridden.")
+            preconditionFailure("This property must be overridden")
         }
     }
     

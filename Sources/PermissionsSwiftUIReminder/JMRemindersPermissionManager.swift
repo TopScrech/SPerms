@@ -18,7 +18,7 @@ public extension PermissionManager {
 
 @available(iOS 13, tvOS 13, *)
 public final class JMRemindersPermissionManager: EventPermissionManager {
-    public override var permissionType: PermissionType {
+    public override var permType: PermissionType {
         .reminders
     }
 

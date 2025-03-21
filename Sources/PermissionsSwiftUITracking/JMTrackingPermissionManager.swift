@@ -10,7 +10,7 @@ public extension PermissionManager {
 
 @available(iOS 14, tvOS 14, *)
 public class JMTrackingPermissionManager: PermissionManager {
-    public override var permissionType: PermissionType {
+    public override var permType: PermissionType {
         get {
             .tracking
         }

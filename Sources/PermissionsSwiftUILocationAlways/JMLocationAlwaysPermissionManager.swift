@@ -13,7 +13,7 @@ public final class JMLocationAlwaysPermissionManager: PermissionManager, CLLocat
     typealias authorizationStatus = CLAuthorizationStatus
     typealias permissionManagerInstance = JMLocationAlwaysPermissionManager
     
-    public override var permissionType: PermissionType {
+    public override var permType: PermissionType {
         .locationAlways
     }
     

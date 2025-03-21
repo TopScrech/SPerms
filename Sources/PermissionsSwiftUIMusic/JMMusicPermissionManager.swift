@@ -18,7 +18,7 @@ public final class JMMusicPermissionManager: PermissionManager {
         }
     }
     
-    public override var permissionType: PermissionType {
+    public override var permType: PermissionType {
         .music
     }
     

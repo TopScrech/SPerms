@@ -101,13 +101,13 @@ final class PermissionsSwiftUISmallScreenTests: XCTestCase {
     //
     //    }
     //    func testPermissionStoreAllPermissions() {
-    //        let permissionType = PermissionType.camera
+    //        let permType = PermissionType.camera
     //        var testingPermissions: [PermissionType] = [.camera, .bluetooth]
     //        store.updateStore(property: {$0.permissions=$1}, value: testingPermissions)
-    //        XCTAssertEqual(permissionType.permissions.description, testingPermissions.description)
+    //        XCTAssertEqual(permType.permissions.description, testingPermissions.description)
     //        testingPermissions = PermissionType.allCases
     //        store.updateStore(property: {$0.permissions=$1}, value: testingPermissions)
-    //        XCTAssertEqual(permissionType.permissions.description, testingPermissions.description)
+    //        XCTAssertEqual(permType.permissions.description, testingPermissions.description)
     //    }
     //    func testPermissionStorePermissionManager() {
     //        let permissionTypes = PermissionType.allCases

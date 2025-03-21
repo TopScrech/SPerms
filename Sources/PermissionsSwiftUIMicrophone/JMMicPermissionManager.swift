@@ -11,7 +11,7 @@ public extension PermissionManager {
 
 @available(iOS 13, tvOS 13, *)
 public final class JMMicrophonePermissionManager: PermissionManager {
-    public override var permissionType: PermissionType {
+    public override var permType: PermissionType {
         .microphone
     }
     public override var authorizationStatus: AuthorizationStatus {

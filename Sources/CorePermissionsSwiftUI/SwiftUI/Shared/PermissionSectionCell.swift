@@ -52,7 +52,7 @@ struct PermissionSectionCell: View {
     
     var body: some View {
         let currentPermission = schemaStore.permissionComponentsStore.getPermissionComponent(
-            for: permissionManager.permissionType
+            for: permissionManager.permType
         )
         
         HStack {
@@ -110,7 +110,7 @@ struct PermissionSectionCell: View {
         permissionManager.requestPermission{authorized, error in
             DispatchQueue.main.async {
                 let result = JMResult(
-                    permissionType: permissionManager.permissionType,
+                    permissionType: permissionManager.permType,
                     authorizationStatus: permissionManager.authorizationStatus,
                     error: error
                 )
@@ -123,7 +123,7 @@ struct PermissionSectionCell: View {
     }
     
     func updateSchemaStore(authorized: Bool, result: JMResult) {
-        schemaStore.permissionComponentsStore.getPermissionComponent(for: permissionManager.permissionType) {permissionComponent in
+        schemaStore.permissionComponentsStore.getPermissionComponent(for: permissionManager.permType) {permissionComponent in
             permissionComponent.interacted = true
             
             if authorized {

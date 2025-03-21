@@ -9,19 +9,19 @@ open class PermissionManager: NSObject, Identifiable {
     ///Holds the permission UI component, containing UI elements like text and image
     open var permissionComponent: JMPermission {
         get {
-            preconditionFailure("This property must be overridden.")
+            preconditionFailure("This property must be overridden")
         }
     }
     
     ///The type of permission
-    open var permissionType: PermissionType {
-        preconditionFailure("This property must be overridden.")
+    open var permType: PermissionType {
+        preconditionFailure("This property must be overridden")
     }
     
     ///The authorization status of the permission
     open var authorizationStatus: AuthorizationStatus  {
         get {
-            preconditionFailure("This property must be overridden.")
+            preconditionFailure("This property must be overridden")
         }
     }
     
@@ -51,6 +51,6 @@ open class PermissionManager: NSObject, Identifiable {
      - completion: Returns back whether the permission authorization is granted, and any errors
      */
     open func requestPermission(completion: @escaping (Bool, Error?) -> Void) {
-        preconditionFailure("This method must be overridden.")
+        preconditionFailure("This method must be overridden")
     }
 }

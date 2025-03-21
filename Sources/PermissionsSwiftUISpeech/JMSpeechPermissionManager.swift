@@ -12,7 +12,7 @@ public extension PermissionManager {
 public final class JMSpeechPermissionManager: PermissionManager {
     
     
-    public override var permissionType: PermissionType {
+    public override var permType: PermissionType {
         .speech
     }
     

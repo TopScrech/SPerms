@@ -14,7 +14,7 @@ public class PermissionSchemaStore: ObservableObject {
     var interactedPermissions: [PermissionManager] {
         //Filter for permissions that are not interacted
         permissions.filter {
-            permissionComponentsStore.getPermissionComponent(for: $0.permissionType).interacted
+            permissionComponentsStore.getPermissionComponent(for: $0.permType).interacted
         }
     }
     

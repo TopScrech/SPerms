@@ -17,13 +17,13 @@ public extension PermissionManager {
     
     ///Permission that allows app to read & write to device calendar before iOS 17
     @available(tvOS, unavailable)
-    @available(iOS, deprecated, obsoleted: 17, message: "iOS 17 introduced breaking changes to EventKit APIs, use 'calendarFull' or 'calendarWrite' instead. Learn more at https://developer.apple.com/documentation/eventkit/accessing_the_event_store.")
+    @available(iOS, deprecated, obsoleted: 17, message: "iOS 17 introduced breaking changes to EventKit APIs, use 'calendarFull' or 'calendarWrite' instead. Learn more at https://developer.apple.com/documentation/eventkit/accessing_the_event_store")
     static let calendar = JMCalendarPermissionManager(requestedAccessLevel: .legacy)
 }
 
 @available(iOS 13, tvOS 13, *)
 public final class JMCalendarPermissionManager: EventPermissionManager {
-    public override var permissionType: PermissionType {
+    public override var permType: PermissionType {
         .calendar
     }
     

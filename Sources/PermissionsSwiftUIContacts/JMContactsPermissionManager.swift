@@ -14,7 +14,7 @@ public final class JMContactsPermissionManager: PermissionManager {
     typealias authorizationStatus = CNAuthorizationStatus
     typealias permissionManagerInstance = JMContactsPermissionManager
     
-    public override var permissionType: PermissionType {
+    public override var permType: PermissionType {
         .contacts
     }
     

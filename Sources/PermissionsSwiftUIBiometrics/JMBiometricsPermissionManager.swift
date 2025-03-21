@@ -21,7 +21,7 @@ public extension PermissionManager {
 @available(iOS 13, macOS 11, *)
 public final class JMBiometricPermissionManager: PermissionManager {
     
-    public override var permissionType: PermissionType {
+    public override var permType: PermissionType {
         .biometrics
     }
     

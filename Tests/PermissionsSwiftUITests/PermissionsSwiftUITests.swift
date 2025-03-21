@@ -120,7 +120,7 @@ final class PermissionsSwiftUITests: XCTestCase {
     //        let mockManager = MockHealthManager()
     //        MockHealthManager.healthDataAvailableOverride = true
     //        let healthPermission = PermissionType.health(categories: .init(readAndWrite: quantityType))
-    //        let manager = JMHealthPermissionManager(healthManager: mockManager, permissionType: healthPermission)
+    //        let manager = JMHealthPermissionManager(healthManager: mockManager, permType: healthPermission)
     //        return (mockManager, manager)
     //    }
     //    func testHealthManagerAuthNotDetermined() {
@@ -165,7 +165,7 @@ final class PermissionsSwiftUITests: XCTestCase {
     //                              HKSampleType.quantityType(forIdentifier: .bloodGlucose)!])
     //        let healthPermission = PermissionType.health(categories: .init(readAndWrite: sharedType))
     //        let mockManager = MockHealthManager()
-    //        let manager = JMHealthPermissionManager(healthManager: mockManager, permissionType: healthPermission)
+    //        let manager = JMHealthPermissionManager(healthManager: mockManager, permType: healthPermission)
     //        return (manager, sharedType, mockManager)
     //    }
     //    func testHealthManagerReadWriteSame() {
@@ -221,7 +221,7 @@ final class PermissionsSwiftUITests: XCTestCase {
     //    }
     //    func testHealthManagerNoHealthPermission() {
     //        let mockManager = MockHealthManager()
-    //        let manager = JMHealthPermissionManager(healthManager: mockManager, permissionType: .health(categories: nil))
+    //        let manager = JMHealthPermissionManager(healthManager: mockManager, permType: .health(categories: nil))
     //        XCTAssertNil(manager.healthPermission)
     //        XCTAssertEqual(manager.authorizationStatus, .notDetermined)
     //        let expectation = self.expectation(description: "Wait for true result")
@@ -235,7 +235,7 @@ final class PermissionsSwiftUITests: XCTestCase {
     //    }
     //    func testHealthManagerEmptyPermissions() {
     //        let mockManager = MockHealthManager()
-    //        let manager = JMHealthPermissionManager(healthManager: mockManager, permissionType: .health(categories: nil))
+    //        let manager = JMHealthPermissionManager(healthManager: mockManager, permType: .health(categories: nil))
     //        XCTAssertNil(manager.healthPermission)
     //        XCTAssertEqual(manager.authorizationStatus, .notDetermined)
     //        let expectation = self.expectation(description: "Wait for true result")
@@ -333,7 +333,7 @@ final class PermissionsSwiftUITests: XCTestCase {
     //    }
     //    func testPermissionCell() {
     //        for permission in [PermissionManager].allCases {
-    //            let currentPermission = PermissionStore().permissionComponentsStore.getPermissionComponent(for: permission.permissionType, modify: {_ in})
+    //            let currentPermission = PermissionStore().permissionComponentsStore.getPermissionComponent(for: permission.permType, modify: {_ in})
     //            let views = getPermissionView(for: permission)
     //            for i in views{
     //                assertSnapshot(matching: i, as: .image(precision: 0.99))

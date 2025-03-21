@@ -13,7 +13,7 @@ public final class JMLocationPermissionManager: PermissionManager, CLLocationMan
     typealias permissionManagerInstance = JMLocationPermissionManager
     
     
-    public override var permissionType: PermissionType {
+    public override var permType: PermissionType {
         .location
     }
     

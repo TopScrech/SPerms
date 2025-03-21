@@ -27,7 +27,7 @@ public class JMHealthPermissionManager: PermissionManager {
     typealias CountComparison = (Int, Int)
     var categories: HKAccess
     let healthStore = HKHealthStore()
-    override public var permissionType: PermissionType {
+    override public var permType: PermissionType {
         get {
             .health
         }

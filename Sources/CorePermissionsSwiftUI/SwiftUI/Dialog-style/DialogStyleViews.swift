@@ -2,7 +2,7 @@ import SwiftUI
 
 // MARK: - Showing Alert Style Permissions
 @available(iOS 13, *)
-@available(tvOS, unavailable, message: "Dialog style permission view is unavailable for tvOS, use modal style instead.")
+@available(tvOS, unavailable, message: "Dialog style permission view is unavailable for tvOS, use modal style instead")
 public extension View {
     /**
      Displays a PermissionsSwiftUI alert view that displays and handles permissions.

@@ -158,7 +158,7 @@ To customize the header title, use the modifier `changeHeaderTo`:
 To customize the header description, use the modifier `changeHeaderDescriptionTo`:
 ```Swift
 .JMPermissions(showModal: $showModal, for: [.camera, .location, .photo])
-.changeHeaderDescriptionTo("Instagram need certain permissions in order for all the features to work.")
+.changeHeaderDescriptionTo("Instagram need certain permissions in order for all the features to work")
 ```
 To customize the bottom description, use the modifier `changeBottomDescriptionTo`:
 ```Swift

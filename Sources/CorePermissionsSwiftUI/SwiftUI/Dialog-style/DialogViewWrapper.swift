@@ -2,7 +2,7 @@ import SwiftUI
 
 // The root level view for alert-style
 @available(iOS 13, *)
-@available(tvOS, unavailable, message: "Dialog style permission view is unavailable for tvOS, use modal style instead.")
+@available(tvOS, unavailable, message: "Dialog style permission view is unavailable for tvOS, use modal style instead")
 @usableFromInline struct DialogViewWrapper<Body: View>: View, CustomizableView {
     @usableFromInline typealias ViewType = Body
     @usableFromInline var showing: Binding<Bool>

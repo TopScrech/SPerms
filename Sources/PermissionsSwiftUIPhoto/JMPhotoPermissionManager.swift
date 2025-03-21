@@ -33,7 +33,7 @@ public final class JMPhotoPermissionManager: PermissionManager {
         @available(iOS 14, *) case full
     }
 
-    public override var permissionType: PermissionType {
+    public override var permType: PermissionType {
         .photo
     }
 

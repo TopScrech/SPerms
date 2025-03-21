@@ -10,7 +10,7 @@ public extension PermissionManager {
 
 @available(iOS 13, tvOS 13, *)
 public final class JMNotificationPermissionManager: PermissionManager {
-    public override var permissionType: PermissionType {
+    public override var permType: PermissionType {
         .notification
     }
     

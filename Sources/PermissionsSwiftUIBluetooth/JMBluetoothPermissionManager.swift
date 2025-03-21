@@ -13,7 +13,7 @@ final public class JMBluetoothPermissionManager: PermissionManager {
     private var completion: ((Bool, Error?) -> Void)?
     private var manager: CBCentralManager?
     
-    public override var permissionType: PermissionType {
+    public override var permType: PermissionType {
         .bluetooth
     }
     

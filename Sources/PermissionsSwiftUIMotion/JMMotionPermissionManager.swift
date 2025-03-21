@@ -13,7 +13,7 @@ public final class JMMotionPermissionManager: PermissionManager {
     typealias authorizationStatus = CMAuthorizationStatus
     typealias permissionManagerInstance = JMMotionPermissionManager
     
-    public override var permissionType: PermissionType {
+    public override var permType: PermissionType {
         .motion
     }
     

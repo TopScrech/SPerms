@@ -8,7 +8,7 @@ struct FilterPermissions {
         store: PermissionSchemaStore
     ) -> [PermissionManager] {
         let filteredPermissions = permissions.filter {
-            store.permissionComponentsStore.getPermissionComponent(for: $0.permissionType).authorized == false
+            store.permissionComponentsStore.getPermissionComponent(for: $0.permType).authorized == false
         }
         
         return filteredPermissions
