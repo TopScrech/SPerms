@@ -13,8 +13,7 @@ let permissionsTargets: [Target] = [
     .target(
         name: "PermissionsSwiftUI", // Maintain backward compatibility - access to all permissions
         dependencies: ["Introspect", "CorePermissionsSwiftUI", "PermissionsSwiftUITracking", "PermissionsSwiftUIBluetooth", "PermissionsSwiftUICalendar", "PermissionsSwiftUICamera", "PermissionsSwiftUIContacts", "PermissionsSwiftUILocation", "PermissionsSwiftUILocationAlways", "PermissionsSwiftUIMicrophone", "PermissionsSwiftUIMotion", "PermissionsSwiftUIMusic", "PermissionsSwiftUINotification", "PermissionsSwiftUIPhoto", "PermissionsSwiftUIReminder", "PermissionsSwiftUISpeech", "PermissionsSwiftUIHealth"],
-        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
-        resources: [.process("loc")]
+        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"]
     ),
     .target(
         name: "PermissionsSwiftUIBluetooth",
@@ -29,7 +28,8 @@ let permissionsTargets: [Target] = [
     .target(
         name: "PermissionsSwiftUICamera",
         dependencies: ["Introspect", "CorePermissionsSwiftUI"],
-        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"]
+        exclude: ["../../Tests/PermissionsSwiftUITests/__Snapshots__"],
+        resources: [.process("loc")]
     ),
     .target(
         name: "PermissionsSwiftUIContacts",
