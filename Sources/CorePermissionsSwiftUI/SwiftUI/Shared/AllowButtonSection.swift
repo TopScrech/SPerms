@@ -7,25 +7,23 @@ struct AllowButtonSection: View {
     
     @Binding var allowButtonStatus: AllowButtonStatus
     
-    var buttonText: String {
-        if allowButtonStatus == .allowed {
-            return "button_allowed"
-        }
-        
-        if allowButtonStatus == .idle {
-            if useAltText {
-                return "button_next"
-            }
+    var buttonText: LocalizedStringKey {
+        switch allowButtonStatus {
+        case .allowed: "button_allowed"
+        case .denied: "button_denied"
             
-            return "button_allow"
+        case .idle:
+            if useAltText {
+                "button_next"
+            } else {
+                "button_allow"
+            }
         }
-        
-        return "button_denied"
     }
     
     var body: some View {
         Button(action: action) {
-            Text(LocalizedStringKey(buttonText), bundle: .module)
+            Text(buttonText, bundle: .main)
                 .fontWeight(.bold)
                 .buttonStatusColor(for: allowButtonStatus)
         }

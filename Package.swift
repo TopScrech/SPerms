@@ -137,10 +137,13 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite
         // Targets can depend on other targets in this package, and on products in packages this package depends on
-        .testTarget(name: "PermissionsSwiftUITests",
-                    dependencies: ["SnapshotTesting", "PermissionsSwiftUI", "CorePermissionsSwiftUI"],
-                    exclude: [],
-                    resources: [.process("__Snapshots__")]),
+        .testTarget(
+            name: "PermissionsSwiftUITests",
+            dependencies: ["SnapshotTesting", "PermissionsSwiftUI", "CorePermissionsSwiftUI"],
+            exclude: [],
+            resources: [
+                .process("__Snapshots__")
+            ]),
         .testTarget(
             name: "PermissionsSwiftUISmallScreenTests",
             dependencies: ["SnapshotTesting"] + permissionsTargets
